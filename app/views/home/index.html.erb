@@ -1,2 +1,29 @@
-<h1 class="text-red-900 text-8xl" >Home#index</h1>
-<p class="text-blue-600">Find me in app/views/home/index.html.erb</p>
+
+<h1 class="text-3xl text-red-600 font-bold underline">
+    Hello world!
+</h1>
+<h1>Palavra Aleatória</h1>
+<p><%= @random_word %></p>
+
+<h1>Letras da Palavra</h1>
+<ul>
+  <% @letters.each do |letter| %>
+    <li><%= letter %></li>
+  <% end %>
+</ul>
+
+<h1>Vetor de Letras</h1>
+<p><%= @letters_array.inspect %></p>
+
+<h1>Terceira Letra do Vetor</h1>
+<p><%= @letters_array[2] %></p>
+<h1>Input de 5 Letras</h1>
+  <%= form_with url: '#', method: :get do %>
+    <%= label_tag :input_word, "Digite uma palavra de 5 letras:" %>
+    <%= text_field_tag :input_word1, nil, maxlength: 1, id: 'input_word1', oninput: "moveFocus(this, 'input_word2')" %>
+    <%= text_field_tag :input_word2, nil, maxlength: 1, id: 'input_word2', oninput: "moveFocus(this, 'input_word3')" %>
+    <%= text_field_tag :input_word3, nil, maxlength: 1, id: 'input_word3', oninput: "moveFocus(this, 'input_word4')" %>
+    <%= text_field_tag :input_word4, nil, maxlength: 1, id: 'input_word4', oninput: "moveFocus(this, 'input_word5')" %>
+    <%= text_field_tag :input_word5, nil, maxlength: 1, id: 'input_word5' %>
+    <%= submit_tag "Enviar" %>
+<% end %>
